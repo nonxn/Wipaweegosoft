@@ -1,11 +1,45 @@
-const letter = ["A", "B","C", "D","E", "F","G", "H","I", "J", "k", "L","M", "N","O", "P","Q", "R", "S","T", "U","V", "W", "X", "Y", "Z"] ;
+const  letter = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
-let result ="";
 
-for( let i = 0; i < 26 ; i+=2) {
+  async function cal (){ 
+    let test = [];
+    let re = [];
+    
+    for(let i=0;i<=24;i++){
+        let o = i+1;
+     
+        re.push(letter[o]);
+         i++ 
+         
+        let u = i-1;
+       
+        re.push(letter[u]);
+ }
 
-    result += letter[i + 1] + "  " + letter[i] + "  " ;
 
+ return re+test;
 }
 
-console.log(result);
+    function delaySaysuccess() {
+    return new Promise((resolve, reject) => {
+    setTimeout(()=>{
+    resolve("success");
+    }, 1000);
+    });
+    }
+
+
+
+    
+    async function main(){
+      try {
+    let a = cal();
+    console.log(a); 
+  } catch (error) {
+
+    console.log("Error");
+     
+  }
+    }
+  
+    main();
