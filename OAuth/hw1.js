@@ -6,12 +6,12 @@ const jwtsecret = "dkalskdjlasdlkasjdlkas.djaslfjasl;kjflaskfl;ask;ga"
 
 const sqlpool = mysql.createPool({
     namedPlaceholders: true,
-    charset: 'utf8',
-    host: "127.0.0.1",
+    charset: 'utf8', 
+    host: "127.0.0.1", 
     port: 3306,
     user: "root",
     password: "",
-    database: "homework_gosoft",
+    database: "hw_gosoft",
 })
 
 const app = express();
@@ -33,8 +33,8 @@ app.use((req, response, next)=>{
 })
 
 app.post('/login', (req, response) => {
-    if (req.body.user == "admin" && req.body.pass == "1234") {
-        const token = jwt.sign({ username: "admin" }, jwtsecret)
+    if (req.body.user == "nan" && req.body.pass == "1234") {
+        const token = jwt.sign({ username: "nan" }, jwtsecret)
         return response.json({token})
     }
     return response.status(400).send("error invalid data");
@@ -74,7 +74,7 @@ app.post('/createData', (req, response) => {
         if(err) {
             return response.status(400).json(err)
         }
-        return response.json({ data: "ok" })
+        return response.json({ data: "Success" })
     })
 })
 
@@ -99,7 +99,7 @@ app.put('/updateData', (req, response) => {
             return response.status(400).json(err)
         }
         if(result.affectedRows == 0) return response.status(400).json({data: "Employee not found"})
-        return response.json({ data: "ok" })
+        return response.json({ data: "Success" })
     })
 })
 
@@ -114,7 +114,7 @@ app.delete('/deleteData', (req, response) => {
             return response.status(400).json(err)
         }
         if(result.affectedRows == 0) return response.status(400).json({data: "Employee not found"})
-        return response.json({ data: "ok" })
+        return response.json({ data: "Success" })
     })
 })
 
