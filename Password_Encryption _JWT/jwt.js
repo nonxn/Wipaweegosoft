@@ -28,7 +28,7 @@ app.get('/error', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-    if(req.body.user == "admin" && req.body.pass == "1234"){
+    if(req.body.user == "nan" && req.body.pass == "1234"){
         const token = jwt.sign({username: "admin"}, "123456")
         res.cookie('token', token)
         res.redirect('/home')
